@@ -1,0 +1,217 @@
+
+https://aws.amazon.com/free/offers/
+
+arn:aws:iam::339713112256:role/TESTACC
+
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": "sts:AssumeRole",
+    "Resource": "arn:aws:iam::3:role/DevopsTestAccRole*"
+  }
+}
+
+Granting a user permissions to switch roles
+We have 2 env prod and test. We need to grant user permissions to swtich test to prod how ? 
+
+A:  1. Create IAM Role in  prod env. Choose Aws account. Choose other account id and give test account id and give full access with role name. create Role. Name: DevopsTestAccRole 
+    2. We need to get ARN number for this role. Copy ARN.
+	3. Go to test env. Create policy. Create JSON (AssumeRole POlicy in google) Copy JSON and give test env ARN. Policy name: TestAccessPolicy 
+	4. In Test user doesnt have permissions so add permissions to Switch Role. Go to user - Add permissions. Attach TestAccessPolicy.
+	
+	
+	
+	
+SravyaDevops: 339713112256   or sravyaops
+info@sravya.co.in
+Partha$1925
+
+
+jenkins: sravyatv
+passwrd sravyatv
+
+
+
+https://www.youtube.com/watch?v=8SQnGqp3YZM
+	
+https://youtu.be/aRsFfnjuYUU?si=Q43fp44FpS8nLahV
+
+
+docker compose for nginx
+.............................................................................
+
+
+#!/bin/bash
+sudo apt-get update -y
+sudo usermod -aG docker ubuntu appendgroup docker     (append : its like a role like admin permissions for people in that group)
+sudo curl https://get.docker.com | bash
+sudo apt  install docker-compose -y
+sudo apt-get install putty-tools
+sudo apt-get install net-tools   for ifconfig
+sudo apt install nginx -y 
+
+sudo yum install -y git
+sudo wget https://dlcdn.apache.org/maven/maven-3/3.9.6/binaries/apache-maven-3.9.6-bin.tar.gz
+sudo tar xvf apache-maven-3.9.6-bin.tar.gz
+sudo mv apache-maven-3.9.6 /usr/local/apache-maven
+export M2_HOME=/usr/local/apache-maven
+export M2=$M2_HOME/bin 
+export PATH=$M2:$PATH
+source ~/.bashrc
+
+
+Docker: Got permission denied while trying to connect to the Docker daemon socket 
+sudo usermod -aG docker ubuntu
+
+
+#!/bin/bash
+sudo apt-get update -y
+sudo apt install nginx -y 
+
+
+
+
+Nginx index file path :  
+/usr/share/nginx/html    container path
+edit  cat  /var/www/html/index.nginx-debian.html    Server path
+ 
+
+
+To convert PPK to pem in cmd:
+puttygen sravya.ppk -O private-openssh -o sravya.pem 
+https://repost.aws/knowledge-center/ec2-ppk-pem-conversion
+
+
+
+sysdm.cpl windows r
+
+
+Stop ec2 lambda code: lambda functions:
+
+import json
+import boto3
+
+ec2 = boto3.resource('ec2')
+
+def lambda_handler(event,context):
+    filter = [ 
+        {
+            'Name': 'tag:PrivateIP',
+            'Values': ['10.1.3.165','10.1.2.113','10.1.3.185','10.1.2.111','10.1.3.148']
+        }
+        ]
+        
+    instances = ec2.instances.filter(Filters=filter)
+    for vm in instances:
+        vm.stop()
+    return 'Success'
+
+..........................................................................
+docker run -d --name nginx -p 90:80 nginx     :   to directly run and map port
+docker run -d --name nginx -p 90:80 -v $PWD/nginx:/usr/share/nginx/html nginx :  mount volume to ubuntu folder
+
+docker run -d --name nginx -p 90:80 -v $PWD/nginx:/usr/share/nginx/html  -v /var/run/docker.sock:/var/run/docker.sock nginx  : to access docker inside the container.
+
+even though docker is not in container inside. : apt-get update
+                                                 apt-get install docker.io
+
+                                                 docker ps  we can seecontainers
+
+
+Steps to write docker file:
+
+FROM ubuntu:latest
+LABEL "build","app"          key value pairs
+RUN apt-get update && apt-get install -y nginx
+
+COPY 
+ADD
+WORKDIR
+ENV
+EXPOSE
+CMD
+VOLUME
+USER
+HEALTHCHECK
+ARG
+ONBUILD
+SHELL
+
+..........................................................................
+Docker swarm :
+
+docker into grep | dockerswarm
+docker swarm init
+
+
+diff between env and argument 
+
+
+arg : we can give when creating image.
+env when creating container.
+
+..................................................................................
+app1-payments-prod-sravya   bucket name
+
+S3 bucket poicy to restrict the users to access but can only see.
+{
+  "Version": "2012-10-17",
+  "Id": "RestrictBucketToIAMUsersOnly",
+  "Statement": [
+    {
+      "Sid": "AllowOwnerOnlyAccess",
+      "Effect": "Deny",
+      "Principal": "*",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::your-bucket-name/*",
+        "arn:aws:s3:::your-bucket-name"
+      ],
+      "Condition": {
+        "StringNotEquals": {
+          "aws:PrincipalArn": "arn:aws:iam::AWS_ACCOUNT_ID:root"
+        }
+      }
+    }
+  ]
+}
+
+.........................................................
+
+
+boto3 is for python.
+
+.........................................................
+
+CUstomised shell script
+
+vi nodehealth.sh
+
+#!/bin/bash
+
+Author:sravya
+Date: 01/12/2022
+
+#script outputs node health
+
+
+Chmod 777 nodehealth.sh
+./nodehealth.sh   execute
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

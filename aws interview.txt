@@ -1,0 +1,60 @@
+Cloud Support Engineer (Deployment)
+Job ID: 2466408Applied: Oct 16, 2023
+IND, TS, Hyderabad
+
+Support
+Operations, IT, & Support Engineering
+
+Key job responsibilities
+· Cloud Support Engineer will be primarily responsible for solving customer’s cases through a variety of customer contact channels which include telephone, email, and web/live chat. You will apply advanced troubleshooting techniques to provide tailored solutions for our customers and drive customer interactions by thoughtfully working with customers to dive deep into the root cause of an issue.
+· Apart from working on a broad spectrum of technical issues, an AWS Support Engineer may also coach/mentor new hires, develop & present training, partner with development teams on complex issues or contact deflection initiatives, participate in new hiring, write tools/script to help the team, or work with leadership on process improvement and strategic initiatives to ensure better CX and compliance with global AWS standards, practices and policies.
+· Career development: We promote advancement opportunities across the organization to help you meet your career goals.
+· Training: We have training programs to help you develop the skills required to be successful in your role.
+We hire smart people who are keen to build a career with AISPL, so we are more interested in the areas that you do know instead of those you haven’t been exposed to yet.
+· Support engineers interested in travel have presented training or participated in focused summits across our sites or at specific AWS events.
+· As we operate on a follow-the-sun model, with Premium Support sites located globally, there is no after hours on-call or mandated overtime in this role.
+
+
+https://www.youtube.com/watch?v=GC3bWcFFZTo&t=24s
+
+The Deployment role supports our services that focus on DevOps technologies, including automation, continuous integration and configuration management.
+
+
+A day in the life
+Every day will bring new and exciting challenges on the job while you:
+· Learn and use groundbreaking technologies.
+· Apply advanced troubleshooting techniques to provide unique solutions to our customers' individual needs.
+· Interact with leading engineers around the world.
+· Partner with Amazon teams in India to help reproduce and resolve customer issues.
+· Leverage your extensive customer support experience to provide feedback to internal Amazon teams in India on how to improve our services.
+· Drive customer communication during critical events.
+· Drive projects that improve support-related processes and our customers’ technical support experience.
+· Write tutorials, how-to videos, and other technical articles for the developer community.
+· Work on critical, highly complex customer problems that may span multiple AWS services
+
+We are open to hiring candidates to work out of one of the following locations:
+
+Hyderabad, TS, IND
+
+Basic Qualifications
+- Bachelor’s degree OR equivalent experience in a technical position
+- Requires minimum of 2+ yrs experience in relevant technical position
+- Advanced experience in administration and troubleshooting for two (2) or more of the following:
+- DevOps/Deployment
+- Orchestration Management
+- Configuration Management
+- Continuous Integration technology (e.g. Kubernetes, Docker, Jenkins, Ansible Chef, Puppet, or related tools)
+- Advanced experience with System Administration with Linux (Ubuntu, CentOS, RedHat) and/or Microsoft Windows Server and associated technologies (Active Directory, Exchange)
+- Advanced experience with Networking and troubleshooting (TCP/IP, DNS, routing, switching, firewalls, LAN/WAN, traceroute, iperf, dig, CURL or related)
+
+Preferred Qualifications
+- One or more Web and Application Server technologies (e.g. Apache HTTPD, Apache Tomcat, Nginx, Glassfish, JBoss, Puma, Passenger, IIS)
+- One or more scripting language (e.g. Bash, PowerShell, Ruby, Python, extensions)
+- One or more version control platform (e.g. Git, Perforce, SVN, TFVC)
+- Experience managing full application stacks from the OS up through custom applications
+- Programming language experience (e.g. Java, node.js, Javascript, .NET, PHP)
+- Exposure to Virtualization (Hypervisors, VMware, Xen)
+- Understand the complete deployment lifecycle from design, build, test, deploy
+- Amazon is committed to a diverse and inclusive workplace. Amazon is an equal opportunity employer, and does not discriminate on the basis of race, national origin, gender, gender identity, sexual orientation, disability, age, or other legally protected status.
+
+

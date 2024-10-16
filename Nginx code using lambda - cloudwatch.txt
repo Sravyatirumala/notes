@@ -1,0 +1,40 @@
+Lambda code:
+
+import boto3
+import time
+
+def lambda_handler(event, context):
+    # Define CloudWatch and S3 clients
+    region = 'ap-south-2'
+    cloudwatch_logs = boto3.client('logs')
+    s3 = boto3.client('s3', region_name=region)
+   
+    # Define log group and S3 bucket
+    log_group_name = 'access.log'
+    bucket_name = 'revanthreddych.com'
+# Get log streams
+    response = cloudwatch_logs.describe_log_streams(logGroupName=log_group_name)
+    log_streams = response.get('logStreams', [])
+   
+    # Iterate over log streams and download logs
+    for log_stream in log_streams:
+        log_stream_name = log_stream['logStreamName']
+        response = cloudwatch_logs.get_log_events(logGroupName=log_group_name, logStreamName=log_stream_name)
+        log_events = response.get('events', [])
+# Save logs to S3
+        if log_events:
+            logs_content = "\n".join([event['message'] for event in log_events])
+            s3_key = f"logs/{log_stream_name}/{int(time.time())}.log"
+            s3.put_object(Bucket=bucket_name, Key=s3_key, Body=logs_content)
+   
+    return {
+        'statusCode': 200,
+        'body': 'Logs exported successfully'
+    }
+
+
+Install cloudwatch agent in cli
+/opt/aws /cloudatch-
+
+Config.log
+

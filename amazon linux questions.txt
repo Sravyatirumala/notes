@@ -1,0 +1,196 @@
+top - 09:03:05 up 3 min,  0 users, load average: 0.23, 0.29, 0.13
+
+System load/CPU Load – is a measurement of CPU over or under-utilization in a Linux system; the number of processes which are being executed by the CPU or in waiting state.
+
+Load average – is the average system load calculated over a given period of time of 1, 5 and 15 minutes.
+
+.........................................................
+Tasks: 100 total,   1 running,  53 sleeping,   0 stopped,   0 zombie
+
+zombie process in Linux is a terminated child process that remains in the system's process table while waiting for its parent process to collect its exit status. A zombie process is a type of process that has completed its execution but still has an entry in the process table.
+
+.........................................................
+%Cpu(s):  0.0 us,  0.0 sy,  0.0 ni,100.0 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+
+us: user cpu time (or) % CPU time spent in user space
+sy: system cpu time (or) % CPU time spent in kernel space
+ni: user nice cpu time (or) % CPU time spent on low priority processes
+id: idle cpu time (or) % CPU time spent idle
+wa: io wait cpu time (or) % CPU time spent in wait (on disk)
+hi: hardware irq (or) % CPU time spent servicing/handling hardware interrupts
+si: software irq (or) % CPU time spent servicing/handling software interrupts
+st: steal time - - % CPU time in involuntary wait by virtual cpu while hypervisor is servicing another processor (or) % CPU time stolen from a virtual machine
+
+....................................................
+
+KiB Mem :   988680 total,   651052 free,    92284 used,   245344 buff/cache
+
+Buff/ Cache: The user cmd which we give will be takein in OS library and the cmd will be copied in cache. Buffer will have all the metadata info from cache.
+So even if the cmg is executed repeteadly the cache wont increase as the cmd is already saved and buffer will check from the cache.
+
+
+ 
+diff between snapshots and AMI.
+ 
+increase s3 storage. : use service quota request for 1000 buckets increase.
+ 
+kernal panic how do u fix: unexpected error casued and system halts . Usually caused by software bugs, h/w malfunctions etc.
+Resolution : COnnect to serial console and login to VM
+             click Reset Vm from google cloud
+             GRUB splash screen apperas and click previous kernel and reboot the system and initiate SSH. 
+ 
+
+increase disk usuage from technical side.  sudo apt install -y gparted
+ 
+ 
+settings lo conf change chesam but still not reflecting.   Do reboot and then  reflect.
+ 
+ 
+increase ec2 usuage nina 5 sec run today it got delay Y ??
+ 
+
+
+I have few questions which was asked me recently 
+1. What details you give to Storage Team to Extend the Disk. 
+
+Ans :
+      Press Windows Key + R.
+      Type msinfo32. Select OK or press Enter.
+      Go under Components, Storage, Drives, or Disks. The information under Disks has more details.
+
+
+
+2. What command you used to see which LUN is Assign with Which Disk
+
+3. If 10GB is added by Storage team but you are not able to get that 10GB then how we troubleshoot it
+
+How to check Kernel Version of Linux OS? 
+ lsb_release-a 
+
+How to check IP address of server?
+PING
+
+How to check default gateway of server?
+Ipconfig
+
+
+What is ulimit?
+ulimit is a built-in Linux shell command that allows viewing or limiting system resource amounts that individual users consume. 
+ulimit -aS
+
+
+How to check which RPM has created /etc/passwd file?
+
+
+Disk space is still full even after deleting a file of 5GB?
+If you're not sure which program might be holding the files open, you can resolve this by rebooting your computer. Mount points and other filesystems: If you're got several drives or disk arrays mounted on your computer, it's possible the files you deleted are not actually located on the disk that's full.
+
+
+How to ssh to your server?
+Use PUTTY or ssh@ ip address of server.
+
+
+
+Sudo bash vs sudo su -
+sudo su lauches su directly with super user privileges, while sudo bash lauches the shell first and then executes the command with bash -c 
+
+
+What is use of /home/user/.bash_profile?
+used to set up and customize the Bash shell when a user logs in to the system. 
+
+
+How to create alias of a command?
+
+ What is use of ~/.bashrc?
+bashrc file is a script file that's executed when a user logs in. The file itself contains a series of configurations for the terminal session which shows in colour.
+
+What is file name to manage dns entires on Linux?
+ /etc/resolv.conf file.
+
+
+ What is use of /etc/hosts entires? 
+ The /etc/hosts file contains the Internet Protocol (IP) host names and addresses for the local host and other hosts in the Internet network.
+
+
+What is use of W command?
+gives us important information about who is currently using the computer,
+
+
+How to kill all process of any user?
+Kill pid
+
+How to mount disk permanently?
+sudo nano /etc/fstab
+Add /dev/sdc /mnt/sdc ext4 defaults 0 0  in last 
+save and reboot.
+
+
+How to check hidden files and how to create it?
+ls -a  and right click on file and create using a  .(dot)
+
+
+How to start process at start up time?
+systemd or crontab -e
+
+
+What does nameless directory represent?
+empty directory
+
+How do you check for free disk space?
+df -H 
+
+
+How do you manage services on a server?
+systemctl enable/disable service.
+
+How do you check size of a directory or file on your system?
+du 
+
+
+How do you check open port on Linux Servers?
+lsof, netstat, netcat.
+
+
+How do you check CPU utilization for a process?
+VMSTAT.
+
+How do you deal with mounting partitions?
+mount cmd
+
+
+How do you find use of a command you don’t know?
+apropos --exact ls or man 
+
+
+How to check if ACL is set on a file?
+ls cmd
+
+What command do you use to check attribute of a file?
+lsattr
+
+
+What would happen if I remove execute permission from a directory?
+
+I am getting message (No Space Left On Device) and df -Th show 50G free?
+restart the process.
+sudo lsof / | grep deleted
+sudo systemctl restart servicename
+
+
+How to check if OS is running on Virtual of Physical Machine?
+using the dmidecode command.
+
+
+How to change owner and Group of a file?
+chgrp
+
+What is use of NMAP command?
+Nmap is a network scanning tool—an open source Linux command-line tool—used for network exploration, host discovery, and security auditing.
+
+How to remove an INODE from Linux File system?
+Unfortunately, there is no way to free inodes other than deleting files we don't need. 
+
+
+
+
+

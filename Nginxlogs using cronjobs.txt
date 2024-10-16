@@ -1,0 +1,52 @@
+Step1: Create buckets
+
+Step2: IAm role - Give role permissions Ec2-s3full access
+
+Step3: Install nginx.
+
+Step4: Aws Cli should be configured.
+
+
+Step5: 
+vi nginxlog.sh
+
+#!/bin/bash
+
+# Variables
+LOG_DIR="/var/log/nginx"
+ERROR_LOG_FILE="$LOG_DIR/error.log"
+TIMESTAMP=$(date +"%Y%m%d%H%M%S")
+S3_BUCKET="s3://testnginxlogs/errorlogs/"
+S3_LOG_FILE="$S3_BUCKET/nginx_error_logs_$TIMESTAMP.log"
+
+# Check if the error log file exists
+if [ -f "$ERROR_LOG_FILE" ]; then
+    # Upload the log file to S3
+    aws s3 cp "$ERROR_LOG_FILE" "$S3_LOG_FILE"
+
+    # Check if the upload was successful
+    if [ $? -eq 0 ]; then
+        echo "Log file successfully uploaded to S3."
+else
+        echo "Failed to upload log file to S3."
+        exit 1
+    fi
+else
+    echo "Error log file $ERROR_LOG_FILE does not exist."
+    exit 1
+fi
+
+
+Step6: To execute : ./nginxlog.sh
+
+
+
+Step:7  
+
+Everyday midnight cronjob runs and logs will be uploaded to s3
+0 0 * * * /root/nginxscript.sh
+
+Cntl O, Enter,Cntl X to save 
+
+
+

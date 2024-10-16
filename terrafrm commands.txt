@@ -1,0 +1,51 @@
+. git ignore file
+
+
+we need to create  .gitignore file for secrets  and not to track after clonigng or adding origin.
+
+
+.secrets*   anyfiles which are starting with secrets. * means all data will ignore
+
+
+to ignore folder:    secrets/*
+
+git add .
+
+
+git commit -m "icakc"
+
+
+git push origin main
+
+
+
+git branch -M master to change from master to main/ main to master
+
+git push origin -d main  to delete a branch from console..
+
+git rebase -i HEAD~1   this will delete last commits.   1,2 , 3 n no of commits we can 
+
+
+
+WORKSPACE
+terraform plan -var-file uat.tfvars
+
+terraform workspace new dev 
+
+terraform workspace select  dev (To switch to workspace)
+
+terraform workspace list  (this will show workspaces)
+
+terraform workspace show (this will show current workspace)
+
+terraform apply -var-file uat.tfvars 
+
+
+IMPORT:
+terraform  import aws_vpc.import_vpc vpc-id      once imported then we can add cidr block and other settings
+
+terraform  import aws_subnet.import_subnet subnet-id 
+
+terraform  import aws_instance.import_instance instance-id   if instance created manusally in console
+
+

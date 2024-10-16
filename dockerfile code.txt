@@ -1,0 +1,29 @@
+Dockerfile:
+
+FROM ubuntu:latest
+LABEL Buildby="Sravya"
+#ARG TERRAFORM="https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_386.zip"
+
+RUN apt-get update -y && apt-get install iputils-ping -y
+RUN apt-get install nginx -y
+RUN apt-get install unzip -y
+
+CMD ["ping","-c 5","yahoo.com"]
+
+#ENTRYPOINT ["ping","-c 5","yahoo.com"]
+
+RUN adduser -D sravya
+
+COPY nginx.conf  /etc/nginx.conf 
+ADD nginx.conf /etc/nginx.confadd
+WORKDIR /home/ubuntu
+
+USER sravya
+
+ADD https://releases.hashicorp.com/terraform/1.7.5/terraform_1.7.5_linux_386.zip .
+
+ENV AWS_ACCESS_KEY="SKCHEFPWCKDA;KCMAC"
+
+CMD ["nginx","-g","daemon off;"]
+
+

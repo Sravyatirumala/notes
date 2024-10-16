@@ -1,0 +1,27 @@
+create 2 instances.
+
+create snapshots with instance volumes.
+
+create volume from that snapshot.
+ 
+attach snapvolume to instance 2
+
+
+lsblk
+
+sudo mkfs -t ext4 /dev/xvdf     # to format the volume (dont format old data)
+
+sudo mkdir /mnt/data # to create the mount point in 2nd instance
+
+sudo mount /dev/xvdf /mnt/data # to mount to the directory created  (xvdf it depends on voume name)
+
+ls /mnt/data   or lsblk #  to verify the mount point
+
+.....................................................................
+sudo vi /etc/fstab & add the line to auto mount every reboot
+
+/dev/xvdf   /mnt/data   ext4   defaults,nofail   0   2 
+
+cd /mnt/data and  cd root or  list -R to list the files in the volumes
+
+

@@ -1,0 +1,58 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Pull Docker Image') {
+            steps {
+                script {
+                    docker.image('nginx:latest').pull()
+                }
+            }
+        } 
+        stage('Run Docker Image') {
+          steps {
+             sh 'docker run -d -p 81:80 nginx'
+               }
+    }
+}
+
+
+// You can define post actions, notifications, etc. here
+}
+
+
+
+2: Multinode images:
+
+pipeline {
+  agent none
+  stages {
+    stage('Back-end') {
+      agent {
+        docker { image 'maven:3.8.1-adoptopenjdk-11' }
+      }
+      steps {
+        sh 'mvn --version'
+      }
+    }
+    stage('Front-end') {
+      agent {
+        docker { image 'node:16-alpine' }
+      }
+      steps {
+        sh 'node --version'
+      }
+    }
+  }
+}
+
+
+
+https://github.com/Sravyatirumala/Jenkins-Zero-To-Hero.git
+
+
+
+docker run -it Dockerfile  we can see app in localhost
+
+
+

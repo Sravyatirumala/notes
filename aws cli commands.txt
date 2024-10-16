@@ -1,0 +1,70 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam:::user/sravya"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::app1-payments-prod-sravya",
+                "arn:aws:s3:::app1-payments-prod-sravya/*"
+            ]
+        }
+    ]
+}
+
+
+aws iam list-users --profile madhu
+
+
+aws ec2 run-instances --image-id ami-07 --count 1 --instance-type t2.medium --key-name Sravya --security-group-ids sg- --subnet-id subnet- --tag-specifications ResourceType=instance,Tags={Key=Name,Value=deleteinstance}
+
+
+
+aws s3 mb s3://deletebucket --region us-west-1
+
+
+
+aws iam create-user --user-name delete
+
+
+Not working : aws iam create-role --role-name prods3 --assume-role-policy-document file://Desktop/adminpolicyrole.json --policies arn:aws:iam::aws:policy/AdministratorAccess
+
+
+lambda :  aws lambda create-function --function-name tvs --runtime Python 3.12 --role arn:aws:lambda:us-east-1:339713112256:function:tvs --handler your-handler-function --code /lambda_function.py
+
+
+
+
+Lambda:
+aws lambda create-function: Creates a new Lambda function.
+aws lambda list-functions: Lists Lambda functions in your account.
+aws lambda invoke: Invokes a Lambda function synchronously.
+
+
+RDS (Relational Database Service):
+aws rds create-db-instance: Creates a new RDS DB instance.
+aws rds describe-db-instances: Describes one or more DB instances.
+aws rds delete-db-instance: Deletes a specified DB instance.
+
+Route 53:
+aws route53 list-hosted-zones: Lists the hosted zones that are associated with your AWS account.
+
+
+CloudFormation:
+aws cloudformation create-stack: Creates a stack as specified in the template.
+aws cloudformation describe-stacks: Returns the description for the specified stack.
+ECS (Elastic Container Service):
+
+aws ecs list-clusters: Lists your clusters in an account.
+
+
+Elastic Beanstalk:
+aws elasticbeanstalk create-application: Creates an application that has one or more versions.
+
+

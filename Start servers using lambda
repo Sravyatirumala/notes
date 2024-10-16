@@ -1,0 +1,47 @@
+STop Servers using Lambda:
+
+import json
+import boto3
+
+ec2 = boto3.resource('ec2')
+
+def lambda_handler(event,context):
+    filter = [ 
+        {
+            'Name': 'tag:PrivateIP',
+            'Values': ['192.168.148.239']
+        }
+        ]
+        
+    instances = ec2.instances.filter(Filters=filter)
+    for vm in instances:
+        vm.start()
+    return 'Success'
+
+cron(30 3 ? * * *) 
+......................................................................
+
+STop Servers using Lambda:
+
+import json
+import boto3
+
+ec2 = boto3.resource('ec2')
+
+def lambda_handler(event,context):
+    filter = [ 
+        {
+            'Name': 'tag:PrivateIP',
+            'Values': ['192.168.148.239']
+        }
+        ]
+        
+    instances = ec2.instances.filter(Filters=filter)
+    for vm in instances:
+        vm.stop()
+    return 'Success'
+	
+cron(30 15 ? * * *)
+
+
+BOTO3 python lo library. only for aws...
